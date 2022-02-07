@@ -1,0 +1,11 @@
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Install zsh
+      homebrew:
+        name: zsh
+        state: present
+        tags: ['zsh']
+    - name: change shell to zsh
+      shell: chsh -s `which zsh`
+      tags: ['zsh']

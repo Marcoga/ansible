@@ -1,0 +1,19 @@
+- name: install node
+  apt:
+    name: ['nodejs', 'npm']
+  tags: ['node']
+- name: install prettier
+  npm:
+    name: prettier
+    global: true
+  tags: ['node']
+- name: install eslint
+  npm:
+    name: eslint
+    global: true
+  tags: ['node']
+- name: install typescript
+  npm:
+    name: typescript
+    global: true
+  tags: ['node']

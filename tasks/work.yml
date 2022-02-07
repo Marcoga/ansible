@@ -1,0 +1,14 @@
+- name: Ensure work directory exists
+  become_user: root
+  file:
+    dest: "{{ work_key | dirname }}"
+    mode: 0700
+    state: directory
+  tags: ['max']
+- name: clone max
+  ansible.builtin.git:
+    repo: 'git@github.com:dcodeit/baml-mobile-advisory.git'
+    dest: "{{ work_key }}/max"
+    update: yes
+    accept_hostkey: yes
+  tags: ['max']
